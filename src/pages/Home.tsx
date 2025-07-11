@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Tractor, Search, Plus, Shield, Clock, MapPin, Star } from 'lucide-react';
+import { Search, Plus, Shield, Clock, MapPin } from 'lucide-react';
 
 const Home: React.FC = () => {
   return (
