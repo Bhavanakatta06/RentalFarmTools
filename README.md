@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -71,3 +72,7 @@ export default tseslint.config([
 =======
 # RentalFarmTools
 >>>>>>> eb1e1eced42b7748158311b625f7d4e20807ce21
+=======
+# RentalFarmTools
+Rental Farm Tools – Full‑stack application for renting and managing agricultural equipment. Built with React (frontend) and Spring Boot (backend), featuring authentication, tool listings, owner dashboards, and image uploads.
+>>>>>>> ed73b75297231bda73bbc3dcfd29acdd79de4168
