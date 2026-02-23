@@ -1,78 +1,89 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-# React + TypeScript + Vite
+# Rental Farm Tools
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack web application for renting and managing agricultural equipment.  
+Built with **React (TypeScript, Vite, TailwindCSS)** on the frontend and **Spring Boot (Java)** on the backend, with **MySQL** for persistence.
 
-Currently, two official plugins are available:
+## 🚀 Features
+- 🔐 User authentication with JWT
+- 📋 Add, edit, delete, and browse tools
+- 🖼️ Image upload support
+- 📊 Dashboard for owners
+- 🔎 Search and filter tools by category, condition, and price
+- 📱 Responsive UI with TailwindCSS
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ Tech Stack
+**Frontend**
+- React + TypeScript
+- Vite
+- TailwindCSS
+- Axios (API calls)
+- React Router
 
-## Expanding the ESLint configuration
+**Backend**
+- Spring Boot
+- Spring Security (JWT authentication)
+- JPA/Hibernate
+- MySQL
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## ⚙️ Setup Instructions
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Clone the repository
+```bash
+git clone https://github.com/Bhavanakatta06/RentalFarmTools.git
+cd RentalFarmTools
+```
+2. Backend Setup
+```bash
+cd backend
+```
+Configure application.properties:
+```
+spring.datasource.url=jdbc:mysql://localhost:3306/rentalfarmtools
+spring.datasource.username=your_db_user
+spring.datasource.password=your_db_password
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+jwt.secret=your_secret_key
+```
+Run the backend:
+```
+mvn spring-boot:run
+```
+3. Frontend Setup
+```bash
+cd frontend
+npm install
+npm run dev
+Frontend will start at http://localhost:5173.
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+📂 Project Structure
+Code
+RentalFarmTools/
+│
+├── backend/        # Spring Boot backend
+│   ├── src/main/java/... 
+│   └── src/main/resources/application.properties
+│
+├── frontend/       # React + Vite frontend
+│   ├── src/
+│   ├── public/
+│   └── package.json
+│
+└── README.md
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-=======
-# RentalFarmTools
->>>>>>> eb1e1eced42b7748158311b625f7d4e20807ce21
-=======
-# RentalFarmTools
-Rental Farm Tools – Full‑stack application for renting and managing agricultural equipment. Built with React (frontend) and Spring Boot (backend), featuring authentication, tool listings, owner dashboards, and image uploads.
->>>>>>> ed73b75297231bda73bbc3dcfd29acdd79de4168
+🧪 Development Notes
+Tools are cached in context but fetched from backend if not available.
+JWT authentication ensures secure access to protected routes.
+Owner-only actions (edit/delete) are restricted via backend + frontend checks.
+
+📌 Next Steps
+Add CI/CD pipeline (GitHub Actions → AWS).
+Deploy backend to AWS EC2.
+Deploy frontend to AWS Amplify or S3 + CloudFront.
+
+👩‍💻 Author
+Bhavana Katta  
+Final-year B.Tech in Computer Science Engineering
+Passionate about building robust full-stack applications 
