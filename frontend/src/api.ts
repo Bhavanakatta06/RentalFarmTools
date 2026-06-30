@@ -1,14 +1,13 @@
-// src/api.ts
 import axios from "axios";
 
 interface RefreshResponse {
-  token: string;
+  token: string; // extend with other fields if your backend returns more
 }
-
 const api = axios.create({
-  baseURL: "http://localhost:8081/api",
+  baseURL: "/api",
+  withCredentials: true,
   headers: {
-    "Content-Type": "application/json", // ✅ ensure JSON body is parsed
+    "Content-Type": "application/json",
   },
 });
 
@@ -34,7 +33,7 @@ api.interceptors.response.use(
       if (refreshToken) {
         try {
           const res = await axios.post<RefreshResponse>(
-            "http://localhost:8081/api/auth/refresh",
+            "/api/auth/refresh",
             { refreshToken },
             { headers: { "Content-Type": "application/json" } }
           );
@@ -58,5 +57,4 @@ api.interceptors.response.use(
     return Promise.reject(error);
   }
 );
-
 export default api;
