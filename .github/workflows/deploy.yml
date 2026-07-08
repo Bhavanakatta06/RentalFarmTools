@@ -9,7 +9,7 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v4
       - name: Build backend image
-        run: docker build -t rentalfarm_backend:latest ./backed
+        run: docker build -t rentalfarm_backend:latest ./backend
       - name: Build frontend image
         run: docker build -t rentalfarm_frontend:latest ./frontend
 
