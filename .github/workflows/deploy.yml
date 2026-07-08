@@ -59,8 +59,8 @@ jobs:
       # Health check: frontend (public site)
       - name: Health check frontend
         run: |
-          echo "Checking frontend at https://bhavanakatta.dpdns.org..."
-          curl -k --fail https://bhavanakatta.dpdns.org || exit 1
+          echo "Checking frontend at https://kattabhavana.dpdns.org..."
+          curl -k --fail https://kattabhavana.dpdns.org || exit 1
 
       # Health check: backend API
       - name: Health check backend
