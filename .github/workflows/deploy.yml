@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Build backend image
         run: docker build -t rentalfarm_backend:latest ./backed
       - name: Build frontend image
@@ -19,7 +19,7 @@ jobs:
           docker save rentalfarm_frontend:latest |gzip > frontend.tar.gz   
       #upload artifacts
       - name: upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: docker-images
           path: "*.tar.gz"
@@ -29,7 +29,7 @@ jobs:
     needs: build
     steps:
       - name: Download artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: docker-images
           path: .
