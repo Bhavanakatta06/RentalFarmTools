@@ -8,6 +8,12 @@ jobs:
     steps:
       - name: checkout code
         uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      
       - name: Build backend image
         run: docker build -t rentalfarm_backend:latest ./backend
       - name: Build frontend image
@@ -15,8 +21,8 @@ jobs:
 
       - name: save Docker images
         run: |
-          docker save rentalfarm_backend:latest |gzip > backend.tar.gz
-          docker save rentalfarm_frontend:latest |gzip > frontend.tar.gz   
+          docker save rentalfarm_backend:latest | gzip > backend.tar.gz
+          docker save rentalfarm_frontend:latest | gzip > frontend.tar.gz   
       #upload artifacts
       - name: upload artifacts
         uses: actions/upload-artifact@v4
