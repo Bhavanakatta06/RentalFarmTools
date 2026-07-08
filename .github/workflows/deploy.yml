@@ -57,10 +57,11 @@ jobs:
           username: ${{ secrets.GCP_USER }}
           key: ${{ secrets.GCP_SSH_KEY }}
           script: |
+            cd ~
             docker load < backend.tar.gz
             docker load < frontend.tar.gz
-            docker compose down || true
-            docker compose up -d --force-recreate
+            docker compose -f docker-compose.yml down || true
+            docker compose -f docker-compose.yml up -d --force-recreate
 
       # Health check: frontend (public site)
       - name: Health check frontend
