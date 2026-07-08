@@ -53,8 +53,8 @@ jobs:
           script: |
             docker load < backend.tar.gz
             docker load < frontend.tar.gz
-            docker-compose down || true
-            docker-compose up -d --force-recreate
+            docker compose down || true
+            docker compose up -d --force-recreate
 
       # Health check: frontend (public site)
       - name: Health check frontend
